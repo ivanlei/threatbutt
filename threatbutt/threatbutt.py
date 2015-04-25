@@ -42,6 +42,7 @@ class ThreatButt(object):
             xform.returnOutput()
         else:
             sys.stdout.write(text)
+            sys.stdout.write('\n')
 
 
 def main():
