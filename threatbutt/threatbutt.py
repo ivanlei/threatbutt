@@ -5,7 +5,7 @@ from argparse import ArgumentParser
 
 import requests
 
-__version__ = '1.0.2'
+__version__ = '1.0.3'
 
 
 class ThreatButt(object):
@@ -56,7 +56,7 @@ def main():
                         help='[OPTIONAL] An IoC to attribute.')
     parser.add_argument('-m', '--md5', dest='md5', default=None,
                         help='[OPTIONAL] An MD5 hash.')
-    args = parser.parse_known_args()
+    args, _ = parser.parse_known_args()
 
     tb = ThreatButt()
 

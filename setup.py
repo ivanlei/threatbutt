@@ -5,7 +5,7 @@ from setuptools import setup
 
 setup(
     name='threatbutt',
-    version='1.0.2',
+    version='1.0.3',
     provides=['threatbutt'],
     author='c0wl',
     url='https://github.com/ivanlei/threatbutt',
