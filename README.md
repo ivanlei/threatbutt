@@ -1,6 +1,7 @@
 # threatbutt  [![Build Status: master](https://travis-ci.org/ivanlei/threatbutt.svg?branch=master)](https://travis-ci.org/ivanlei/threatbutt)
 
-### Defense in derpth - maximum protection from hacker threats like 4Chan and Reddit.
+### Defense in derpth
+#### Maximum protection from hacker threats like 4Chan and Reddit.
 
 
 ## Supported APIs
