@@ -1,0 +1,9 @@
+-e .
+
+# Testing requirements
+coverage
+mock
+pre-commit
+pyflakes
+pytest
+tox
