@@ -1,8 +1,9 @@
-# threatbutt  [![Build Status: master](https://travis-ci.org/ivanlei/threatbutt.svg?branch=master)](https://travis-ci.org/ivanlei/threatbutt)
+![ThreatButt](/images/threatbutt.png)
+
+# ThreatButt  [![Build Status: master](https://travis-ci.org/ivanlei/threatbutt.svg?branch=master)](https://travis-ci.org/ivanlei/threatbutt)
 
 ### Defense in derpth
 #### Maximum protection from hacker threats like 4Chan and Reddit.
-
 
 ## Supported APIs
 For detailed info on the ThreatButt API see [the docs](http://docs.threatbutt.com).
