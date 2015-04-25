@@ -5,6 +5,8 @@ from argparse import ArgumentParser
 
 import requests
 
+from .MaltegoTransform import MaltegoTransform
+
 __version__ = '1.0.3'
 
 
@@ -12,27 +14,34 @@ class ThreatButt(object):
 
     """Issues requests to ThreatButt API."""
 
+    def __init__(self, maltegofy=False):
+        self._maltegofy = maltegofy
+
     def clown_strike_ioc(self, ioc):
         """Performs Clown Strike lookup on an IoC.
 
         Args:
             ioc - An IoC.
-        Returns:
-            string - Clown Strike IoC Resolution
         """
         r = requests.get('http://threatbutt.io/api', data='ioc={0}'.format(ioc))
-        return r.text
+        self._output(r.text)
 
     def bespoke_md5(self, md5):
         """Performs Bespoke MD5 lookup on an MD5.
 
         Args:
             md5 - A hash.
-        Returns:
-            string - Bespoke MD5 Resolution
         """
         r = requests.post('http://threatbutt.io/api/md5/{0}'.format(md5))
-        return r.text
+        self._output(r.text)
+
+    def _output(self, text):
+        if self._maltegofy:
+            xform = MaltegoTransform()
+            xform.addEntity('maltego.Phrase', text)
+            xform.returnOutput()
+        else:
+            sys.stdout.write(text)
 
 
 def main():
@@ -56,17 +65,17 @@ def main():
                         help='[OPTIONAL] An IoC to attribute.')
     parser.add_argument('-m', '--md5', dest='md5', default=None,
                         help='[OPTIONAL] An MD5 hash.')
+    parser.add_argument('--maltego', dest='maltego', default=False, action='store_true',
+                        help='[OPTIONAL] Run in Maltego compatibility mode.')
     args, _ = parser.parse_known_args()
 
-    tb = ThreatButt()
+    tb = ThreatButt(args.maltego)
 
     if args.ioc:
-        attrib = tb.clown_strike_ioc(args.ioc)
-        sys.stdout.write(attrib)
+        tb.clown_strike_ioc(args.ioc)
 
     elif args.md5:
-        attrib = tb.bespoke_md5(args.md5)
-        sys.stdout.write(attrib)
+        tb.bespoke_md5(args.md5)
 
     else:
         parser.print_help()
