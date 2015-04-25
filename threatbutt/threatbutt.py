@@ -7,7 +7,7 @@ import requests
 
 from .MaltegoTransform import MaltegoTransform
 
-__version__ = '1.0.6'
+__version__ = '1.0.8'
 
 
 class ThreatButt(object):
@@ -42,6 +42,7 @@ class ThreatButt(object):
             xform.returnOutput()
         else:
             sys.stdout.write(text)
+            sys.stdout.write(u'\n')
 
 
 def main():
