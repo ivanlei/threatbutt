@@ -23,7 +23,7 @@ class ThreatButt(object):
         Args:
             ioc - An IoC.
         """
-        r = requests.get('http://threatbutt.io/api', data='ioc={0}'.format(ioc))
+        r = requests.get('http://api.threatbutt.io/api', data='ioc={0}'.format(ioc))
         self._output(r.text)
 
     def bespoke_md5(self, md5):
@@ -32,7 +32,7 @@ class ThreatButt(object):
         Args:
             md5 - A hash.
         """
-        r = requests.post('http://threatbutt.io/api/md5/{0}'.format(md5))
+        r = requests.post('http://api.threatbutt.io/api/md5/{0}'.format(md5))
         self._output(r.text)
 
     def _output(self, text):
