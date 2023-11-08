@@ -16,7 +16,7 @@ setup(
     packages=find_packages(),
     install_requires=[
         'argparse==1.3.0',
-        'requests==2.20.0'
+        'requests==2.31.0'
     ],
     entry_points={
         'console_scripts': [
